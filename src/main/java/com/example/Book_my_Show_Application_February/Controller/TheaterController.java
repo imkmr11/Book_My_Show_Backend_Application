@@ -31,4 +31,15 @@ public class TheaterController {
 
 
     }
+     @DeleteMapping("/remove") //http://localhost:8080/theater/remove?theaterId=<id here>
+    public ResponseEntity<String> removeTheater(@RequestParam("theaterId") int theaterId){
+        String response = theaterService.removeTheater(theaterId);
+        return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
+    }
+
+    @GetMapping("/theaters-with-unique-locations") //http://localhost:8080/theater/theaters-with-unique-locations
+    public ResponseEntity<Map<String,String>> theatersWithUniqueLocations(){
+        Map<String,String> theatersWithUniqueLocations = theaterService.theaterWithUniqueLocations();
+        return new ResponseEntity<>(theatersWithUniqueLocations,HttpStatus.FOUND);
+    }
 }
