@@ -24,6 +24,17 @@ public class ShowController {
         return new ResponseEntity<>(showService.addShow(showEntryDto), HttpStatus.CREATED);
 
     }
+    
+    
+    @DeleteMapping("/remove") //http://localhost:8080/show/remove?showId=<id here>
+    public ResponseEntity<String> removeShow(@RequestParam("showId") int showId){
+        String response = showService.removeShow(showId);
+        if(response.equals("CANCELED")){
+            //Email will be sent to the users that show has been cancelled,
+            //you will be refunded your money back
+        }
+        return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
+    }
 
 
 }
