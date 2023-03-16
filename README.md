@@ -109,7 +109,7 @@ This project uses the following tech stack:
 * MySQL WorkBench
 
 ## Contact
-For questions, feedback, or support, please contact the project owner at pranshubarar1851996@gmail.com.
+For questions, feedback, or support, please contact the project owner at kemshettymadhav@gmail.com.
 
 ## Conclusion
 This ONLINE-MOVIE-TICKETING-APPLCIATION provides a strong backend infrastructre to do CRUD operations and managing the database.
