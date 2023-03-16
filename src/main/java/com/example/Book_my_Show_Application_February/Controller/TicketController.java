@@ -29,6 +29,16 @@ public class TicketController {
             return "";
         }
 
+    }
+      @GetMapping("/get-ticket-details") //http://localhost:8080/tickets/get-ticket-details?ticketId=<id here>
+    public ResponseEntity<TicketDetailsResponseDto> getDetails(@RequestParam("ticketId") int ticketId){
+        TicketDetailsResponseDto ticketDetailsResponseDto = ticketService.getDetails(ticketId);
+        return new ResponseEntity<>(ticketDetailsResponseDto,HttpStatus.FOUND);
+    }
 
+    @DeleteMapping("/cancel_ticket") //http://localhost:8080/tickets/cancel_ticket?ticketId=<id here>
+    public ResponseEntity<String> cancelTicket(@RequestParam("ticketId") int ticketId){
+        String response = ticketService.cancelTicket(ticketId);
+        return new ResponseEntity<>(response,HttpStatus.ACCEPTED);
     }
 }
